@@ -3,7 +3,10 @@ handlers:
 - !org.audit4j.core.handler.ConsoleAuditHandler {}
 - !org.audit4j.handler.db.DatabaseAuditHandler
   embedded: false
-  db_connection_type: jndi
-  db_jndi_datasource: java:/PostgresDS
+  db_connection_type: POOLED
+  db_driver: org.postgresql.Driver
+  db_url: jdbc:postgresql://localhost/audit4j
+  db_user: audit4j
+  db_password: audit4j
 layout: !org.audit4j.core.layout.SimpleLayout {}
 metaData: !com.broodcamp.audit4j.AuditMetaData {}
